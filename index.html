@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Curso de Javascript</title>
+    </head>
+    <body>
+        <script>
+            //Variáveis e dados
+            var nome = "Maribel";
+            var idade = 15;
+            var peso = 6.5;
+            var humano = false;
+
+            var alunos = ['Maribel', 'Kira', 'Franja', 'Pantufa', 'Frajola'];
+
+            var aluno = {
+                nome: 'Maribel',
+                idade: 15,
+                peso: 6.5,
+                humano: false
+            };
+
+            var aluno1 = {
+                nome: alunos[2],
+                idade: 15,
+                peso: 6.5,
+                humano: false
+            };
+
+
+            console.log(alunos[1]);
+            console.log(aluno.peso);
+            console.log(aluno1.nome);
+
+            //Operadores matemáticos
+            var x = 10, y = 5;
+
+            x = x + y;
+            
+            var a = 10, b = 5;
+            a *= b;
+
+            console.log("Resultado de 'x = x + y' => " + x);
+            console.log("Resultado de 'a += b' => " + a);
+
+            //Funções
+            function soma(numero1, numero2) {
+                var resultado = numero1 + numero2;
+                return resultado;
+            }
+
+            var resultado = soma(1, 1);
+            console.log("Resultado função soma => " + resultado);
+
+            //Condicionais
+            function retornaSexo1(sexo) {
+                if(sexo === 'F') {
+                    return 'Feminino';
+                } else if (sexo === 'M') {
+                    return 'Masculino';
+                } else {
+                    return 'Outro';
+                }
+            }
+
+            var resultSexo1 = retornaSexo1('F');
+            console.log("if => " + resultSexo1);
+
+            function retornaSexo2(sexo) {
+                switch (sexo) {
+                    case 'F':
+                        return 'Feminino';
+                    case 'M':
+                        return 'Masculino';
+                    default:
+                        return 'Outro';
+                }
+            }
+
+            var resultSexo2 = retornaSexo2('f');
+            console.log("Switch => " + resultSexo2);
+
+            //Operadores Lógicos            
+            var sexo = 'M', idade = 23;
+
+            if (sexo === 'M' && idade >= 18) {
+                console.log('Masculino com idade igual ou superior a 18');
+            }
+
+            sexo = 'F';
+
+            if (sexo === 'M' || idade >= 18) {
+                console.log('Não é masculino mas a idade é igual ou superior a 18');
+            }
+
+            if (sexo !== 'M') {
+                console.log('Diferente de M');
+            }
+
+            sexo = 'M'
+
+            var masculino;
+
+            if (sexo === 'M') {
+                masculino = true;
+            } else {
+                masculino = false;
+            }
+            
+            console.log('Condicional guardada em variável => ' + masculino);
+
+            var masculino2 = (sexo === 'M');
+            var masculino3 = sexo === 'F';
+
+            console.log('Condicional guardada em variável reduzida => ' + masculino2);
+            console.log('Condicional guardada em variável reduzida 2 => ' + masculino3);
+
+            //Condição Ternária
+            var temperatura = 'Q';
+
+            var retorno = (temperatura === 'Q') ? 'Quente' : 'Frio';
+            console.log("Condição Ternária => " + retorno);
+
+            //Estrutura de Repetição
+            for(var i = 0; i <= 10; i++) {
+                console.log("For => " + i);
+            }
+
+            var j = 132456;
+            var count = 0;
+            while(j > 50) {
+                count += 1;
+                console.log('While ' + count + ' => ' + j);
+                j /= 5;
+            }
+
+            //Intervalo e timeout
+            function exibeAlgo() {
+                console.log('Hello World com setInterval');
+            }
+            // exibeAlgo() => Executa a função
+            // exibeAlgo sem () => referencia a função, repassa o escopo da função para outro local
+            setInterval(exibeAlgo, 1000);
+
+            function exibeAlgo2() {
+                console.log('Hello World com setTimeout');
+            }
+
+            setTimeout(exibeAlgo2, 5000);
+
+        </script>
+    </body>
+</html>
