@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso Javascript - Manipulando a DOM</title>
+    </head>
+    <body>
+        <div id="app">
+            <button onclick="mostraAlertaBotao()">Me pressione</button>
+            <input onmouseover="mostraAlertaInput()" placeholder="Passar o mouse"/>
+            
+            <br><br>
+            
+            <h4>Trabalhando com a DOM</h4>
+            <input type="text" name="nome"/>
+            <button class="botao">Adicionar</button>
+
+            <br><br>
+
+            <h4>Lidando com elementos</h4>
+            <br>
+            <input id="apagar"/>
+
+            <br><br>
+
+            <h4>Alterando estilos</h4>
+            <div class="box"></div>
+        </div>
+
+
+        <script>
+            function mostraAlertaBotao() {
+                alert('Botão foi clicado.');
+            }
+
+            function mostraAlertaInput() {
+                alert('Passou o mouse no campo.');
+            }
+
+            // Trabalhando com a DOM
+            var inputElement = document.querySelector('input[name=nome]');
+            var btnElement = document.querySelector('.botao');
+
+            btnElement.onclick = function() {
+                var text = inputElement.value;
+                console.log(text);
+                alert(text);
+            }
+
+            // Lidando com elementos
+            var linkElement = document.createElement('a');
+            linkElement.setAttribute('href', 'htpp://rocketseat.com.br');
+            linkElement.setAttribute('title', 'Site da Rocketseat');
+
+            var textElement = document.createTextNode('Acessar site da Rocketseat');
+            linkElement.appendChild(textElement);
+
+            var containerElement = document.querySelector('#app');
+            containerElement.appendChild(linkElement);
+
+            var inputElement = document.querySelector('#apagar');
+            containerElement.removeChild(inputElement);
+
+            // Alterando estilos
+            var boxElement = document.querySelector('.box');
+
+            boxElement.style.width = 100;
+            boxElement.style.height = 100;
+            boxElement.style.backgroundColor = 'green';
+        </script>
+    </body>
+</html>

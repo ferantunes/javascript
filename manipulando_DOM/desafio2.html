@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Desafio 2</title>
+    </head>
+    <body>
+        <div id="app">
+            <button onclick="criaQuadrado()">Criar Quadrado</button>
+        </div>
+
+        <br>
+        
+        <div id="quadrado"></div>
+
+        <br>
+
+        <div id="lista">
+            <!-- 4º exercício -->
+            <input type="text" name="nome" placeholder="Digite o nome">
+            <button onClick="adicionar()" id="btnAdicionar">Adicionar</button>
+        </div>
+
+        
+
+        <script>
+            // 1º exercício
+           
+            function criaQuadrado() {
+                var box = document.createElement('div');
+                box.setAttribute('class', 'box');
+                
+                var container = document.querySelector('#quadrado');
+                container.appendChild(box);
+                
+                box.setAttribute('onmouseover', 'trocaCor()');
+
+                var boxElement = document.querySelector('.box');
+            
+                boxElement.style.backgroundColor = '#f00';
+                boxElement.style.width = 100;
+                boxElement.style.height = 100;
+            }
+
+            //2º exercício
+
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            function trocaCor() {
+
+                var newColor = getRandomColor(); // #E943F0
+
+                var boxElement = document.querySelector('.box');
+                boxElement.style.backgroundColor = newColor;
+            }
+            
+            // 3º exercício
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+            var ulElement = document.createElement('ul');
+
+            var container = document.querySelector('#lista');
+            container.appendChild(ulElement);
+                    
+
+            for (var i = 0; i < nomes.length ; i++) {
+                var textElement = document.createTextNode(nomes[i]);
+                var liElement = document.createElement('li');
+                liElement.appendChild(textElement);
+                container.appendChild(liElement);
+            }
+
+            // 4º exercício
+            function adicionar() {
+                var inputElement = document.querySelector('input[name=nome]');
+                var btnElement = document.querySelector('#btnAdicionar');
+                
+                var texto = inputElement.value;
+
+                var liElement = document.createElement('li');
+                var textElement = document.createTextNode(texto);
+                liElement.appendChild(textElement);
+                container.appendChild(liElement);
+
+                inputElement.value = '';
+            }
+
+        </script>
+    </body>
+</html>
